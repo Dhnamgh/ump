@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hệ thống Quản lý UMP Smart</title>
+  <meta name="robots" content="noindex, noarchive">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+    header {
+      padding: 8px 14px;
+      background: #0056b3;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    .w {
+      position: relative;
+      height: calc(100% - 37px);
+      background: #fff;
+    }
+    iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #fff;
+    }
+    /* chặn click menu/badge góc dưới Streamlit */
+    .b {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 110px;
+      height: 60px;
+      pointer-events: auto;
+      background: transparent;
+      z-index: 999;
+    }
+    @media(max-width: 600px) {
+      .b { width: 85px; height: 50px; }
+    }
+  </style>
+</head>
+<body>
+  <header>HỆ THỐNG QUẢN LÝ THÔNG MINH - UMP</header>
+  <div class="w">
+    <iframe id="f" allow="clipboard-read; clipboard-write" referrerpolicy="no-referrer"></iframe>
+    <div class="b" aria-hidden="true"></div>
+  </div>
+  <script>
+    (function(){
+      // Mã hóa của: https://...... streamlit.app
+      var s = "aHR0cHM6Ly91bXAtc21hcnQuc3RyZWFtbGl0LmFwcC8/ZW1iZWQ9dHJ1ZQ==";
+      var base = atob(s);
+
+      var qs = window.location.search;
+      var url = base;
+      if (qs && qs.length > 1) {
+        url = base + "&" + qs.substring(1);
+      }
+
+      setTimeout(function(){
+        document.getElementById("f").src = url;
+      }, 10);
+    })();
+  </script>
+</body>
+</html>
